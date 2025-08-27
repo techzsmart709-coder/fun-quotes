@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fun Fact Generator</title>
+    <style>
+        body {
+            font-family: 'Comic Sans MS', cursive, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #ff9a8b;
+            background-image: linear-gradient(90deg, #ff9a8b 0%, #ff6a88 55%, #ff99ac 100%);
+            transition: background-color 0.5s ease-in-out;
+            text-align: center;
+            color: white;
+            padding: 20px;
+        }
+
+        .container {
+            background-color: rgba(255, 255, 255, 0.2);
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            max-width: 600px;
+            margin: 0 20px;
+        }
+
+        h1 {
+            font-size: 3em;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        #fact-display {
+            font-size: 1.5em;
+            min-height: 50px;
+            margin-bottom: 20px;
+        }
+
+        #generate-btn {
+            padding: 15px 30px;
+            font-size: 1.2em;
+            font-weight: bold;
+            color: #ff6a88;
+            background-color: white;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        #generate-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Fun Fact Generator! 🤪</h1>
+        <p id="fact-display">Click the button below to get a random fun fact!</p>
+        <button id="generate-btn">Surprise Me! ✨</button>
+    </div>
+
+    <script>
+        // Array of fun facts
+        const facts = [
+            "A group of flamingos is called a 'flamboyance'.",
+            "The shortest war in history lasted only 38 to 45 minutes.",
+            "Octopuses have three hearts.",
+            "A 'jiffy' is an actual unit of time: 1/100th of a second.",
+            "The unicorn is the national animal of Scotland.",
+            "There are more possible chess games than atoms in the known universe.",
+            "Honey never spoils.",
+            "Wombat poop is cube-shaped."
+        ];
+
+        // Array of background colors
+        const colors = [
+            '#ff6a88', '#ff99ac', '#8e79e6', '#7991e6', '#fddb92', '#d1fdff', '#5fd2a9', '#f0f9a7'
+        ];
+
+        // Select the button and fact display elements
+        const generateBtn = document.getElementById('generate-btn');
+        const factDisplay = document.getElementById('fact-display');
+
+        // Add a click event listener to the button
+        generateBtn.addEventListener('click', () => {
+            // Get a random fact from the facts array
+            const randomFact = facts[Math.floor(Math.random() * facts.length)];
+            
+            // Get a random color from the colors array
+            const randomColor = colors[Math.floor(Math.random() * colors.length)];
+            
+            // Update the text and background color
+            factDisplay.textContent = randomFact;
+            document.body.style.backgroundColor = randomColor;
+        });
+    </script>
+</body>
+</html>
